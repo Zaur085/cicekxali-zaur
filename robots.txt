@@ -6,5 +6,4 @@ Sitemap: https://cicekxali.az/sitemap.xml
 
 # Admin və sistem qovluqları
 Disallow: /admin/
-Disallow: /tracker/
-Disallow: /config.php
+

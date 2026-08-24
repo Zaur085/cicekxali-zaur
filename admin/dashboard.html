@@ -167,51 +167,8 @@
 
                 function loadStats(filter = 'all') {
                     const body = document.getElementById('visitor-log-body');
-                    body.innerHTML = '<tr><td colspan="5" style="padding: 20px; text-align: center;">Yüklənir...</td></tr>';
-
-                    fetch('stats_api.php')
-                        .then(r => r.json())
-                        .then(data => {
-                            body.innerHTML = '';
-                            const now = Math.floor(Date.now() / 1000);
-                            
-                            data.forEach(v => {
-                                // 5 saniyədən az olanları göstərmə (istəyə görə)
-                                if (v.duration < 5) return;
-
-                                const isOnline = (now - v.lastSeen) < 30; // Son 30 saniyədə görülübsə online
-                                const minutes = Math.floor(v.duration / 60);
-                                const seconds = v.duration % 60;
-                                const timeStr = minutes > 0 ? `${minutes} dəq ${seconds} sn` : `${seconds} sn`;
-
-                                const tr = document.createElement('tr');
-                                tr.style.borderBottom = '1px solid #f8f8f8';
-                                tr.innerHTML = `
-                                    <td style="padding: 15px 10px;">
-                                        <div style="font-weight: 600;">${v.ip}</div>
-                                        <div style="font-size: 0.75rem; color: #999;">${v.device}</div>
-                                    </td>
-                                    <td style="padding: 15px 10px; font-size: 0.85rem;">${v.referrer}</td>
-                                    <td style="padding: 15px 10px; font-size: 0.85rem;">${new Date(v.startTime * 1000).toLocaleString('az-AZ')}</td>
-                                    <td style="padding: 15px 10px; font-weight: 600;">${timeStr}</td>
-                                    <td style="padding: 15px 10px;">
-                                        <span style="background: ${isOnline ? 'rgba(37, 211, 102, 0.1)' : '#f0f0f0'}; color: ${isOnline ? '#25D366' : '#999'}; padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 700;">
-                                            ${isOnline ? 'Canlı' : 'Ayrılıb'}
-                                        </span>
-                                    </td>
-                                `;
-                                body.appendChild(tr);
-                            });
-                        });
+                    body.innerHTML = '<tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-secondary);">GitHub Pages statik HTML rejimində canlı visitor logları PHP olmadan saxlanılmır. Google Analytics istifadə olunur.</td></tr>';
                 }
-                
-                // Canlı axın üçün hər 10 saniyədə bir statistikaları yenilə
-                setInterval(() => {
-                    const stats = document.getElementById('stats-section');
-                    if (stats.style.display === 'block') {
-                        loadStats();
-                    }
-                }, 10000);
 
                 document.getElementById('file-selector').addEventListener('change', function() {
                     loadInitialContent(this.value);
@@ -219,52 +176,11 @@
 
                 function loadInitialContent(fileName) {
                     const editor = document.getElementById('code-editor');
-                    editor.value = "Yüklənir...";
-                    
-                    fetch('api.php?file=' + fileName)
-                        .then(response => response.text())
-                        .then(content => {
-                            editor.value = content;
-                        })
-                        .catch(err => {
-                            alert('Xəta baş verdi: ' + err);
-                            editor.value = "Faylı yükləmək mümkün olmadı.";
-                        });
+                    editor.value = "// GitHub Pages statik HTML rejimindədir.\n// Faylları birbaşa GitHub / VS Code vasitəsilə redaktə edin.";
                 }
 
                 function saveFile() {
-                    const fileName = document.getElementById('file-selector').value;
-                    const content = document.getElementById('code-editor').value;
-                    const saveBtn = document.querySelector('.login-btn');
-                    
-                    saveBtn.innerText = "Yadda saxlanılır...";
-                    saveBtn.disabled = true;
-
-                    fetch('api.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            file: fileName,
-                            content: content
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Fayl uğurla yadda saxlanıldı!');
-                        } else {
-                            alert('Xəta: ' + data.message);
-                        }
-                    })
-                    .catch(err => {
-                        alert('Şəbəkə xətası: ' + err);
-                    })
-                    .finally(() => {
-                        saveBtn.innerText = "Yadda Saxla";
-                        saveBtn.disabled = false;
-                    });
+                    alert('GitHub Pages statik HTML rejimindədir. Dəyişiklikləri birbaşa GitHub repository-də yadda saxlayın.');
                 }
             </script>
         </main>
