@@ -1,0 +1,67 @@
+/* Pricing Buttons Fix */
+
+.price-actions {
+    display: flex !important;
+    gap: 15px !important;
+    margin-top: auto !important;
+    padding-top: 25px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.price-btn {
+    flex: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 16px 10px !important;
+    border-radius: 15px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+}
+
+.price-btn.primary {
+    background: #ff3b44 !important;
+    color: #ffffff !important;
+}
+
+.price-btn.secondary {
+    background: #ffffff !important;
+    color: #ff3b44 !important;
+    border: 2px solid #ff3b44 !important;
+}
+
+.price-btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(255, 59, 68, 0.25) !important;
+}
+
+.price-btn.primary:hover {
+    background: #e6353d !important;
+}
+
+.price-btn.secondary:hover {
+    background: #fff5f5 !important;
+}
+
+.price-btn i {
+    font-size: 1.1rem !important;
+}
+
+@media (max-width: 576px) {
+    .price-actions {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    .price-btn {
+        width: 100% !important;
+        padding: 15px !important;
+    }
+}

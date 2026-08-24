@@ -1,0 +1,195 @@
+/* Admin Panel Styling - Light Theme to match Main Site */
+:root {
+    --primary: #e31f26;
+    --primary-light: #ff4f55;
+    --accent: #FFD700;
+    --bg-body: #fafafa;
+    --bg-card: #ffffff;
+    --text-main: #1a1010;
+    --text-muted: #7a5e5e;
+    --border: rgba(227, 31, 38, 0.1);
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* Login Page */
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.login-card {
+    background: var(--bg-card);
+    padding: 45px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.login-card .logo-img {
+    height: 120px;
+    margin-bottom: 25px;
+}
+
+.login-card h2 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    background: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    color: var(--text-main);
+    outline: none;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(227, 31, 38, 0.05);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 8px 25px rgba(227, 31, 38, 0.25);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(227, 31, 38, 0.35);
+}
+
+/* Dashboard Layout */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: var(--bg-card);
+    padding: 40px 24px;
+    border-right: 1px solid #eee;
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    padding: 14px 20px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: rgba(227, 31, 38, 0.05);
+    color: var(--primary);
+}
+
+.main-content {
+    flex: 1;
+    padding: 50px;
+    background-color: #fcfcfc;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-bar h2 {
+    font-weight: 800;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.stat-card p {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
